@@ -1,0 +1,9 @@
+{
+  "root": "D:/data/dataset",
+  "splits": ["train", "val"],
+  "mode": "continuous",
+  "start": 1,
+  "digits": 6,
+  "dry_run": true,
+  "img_exts": [".jpg", ".jpeg", ".png"]
+}
