@@ -1,0 +1,11 @@
+{
+  "folder": "D:/data/files",
+  "prefix": "img_",
+  "start": 1,
+  "digits": 4,
+  "dry_run": true,
+  "exts": [
+    ".jpg",
+    ".png"
+  ]
+}

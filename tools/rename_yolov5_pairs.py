@@ -2,6 +2,7 @@
 # python tools/rename_yolov5_pairs.py --help
 # python tools/rename_yolov5_pairs.py --root /path/to/dataset --splits train,val --dry-run
 # python tools/rename_yolov5_pairs.py --root /path/to/dataset --splits train,val --apply
+
 import argparse
 import json
 import os
@@ -19,7 +20,7 @@ DEFAULT_CONFIG = {
 }
 
 
-# 读取 JSON 配置文件并返回字典配置。
+# 读取 JSON 配置文件并返回字典配置
 def load_config(config_path: Path | None) -> dict:
     if config_path is None:
         return {}
@@ -35,7 +36,7 @@ def load_config(config_path: Path | None) -> dict:
     return data
 
 
-# 将扩展名列表标准化为小写且带点号的元组。
+# 将扩展名列表标准化为小写且带点号的元组
 def normalize_exts(exts) -> tuple[str, ...]:
     if not exts:
         return tuple(DEFAULT_CONFIG["img_exts"])
@@ -54,7 +55,7 @@ def normalize_exts(exts) -> tuple[str, ...]:
     return tuple(normalized)
 
 
-# 将 split 输入解析为非空字符串列表。
+# 将 split 输入解析为非空字符串列表
 def parse_splits(value) -> list[str]:
     if isinstance(value, list):
         splits = [str(x).strip() for x in value if str(x).strip()]
@@ -66,7 +67,7 @@ def parse_splits(value) -> list[str]:
     return splits
 
 
-# 收集目录下所有匹配扩展名的图片文件并按名称排序。
+# 收集目录下所有匹配扩展名的图片文件并按名称排序
 def collect_images(images_dir: Path, img_exts: tuple[str, ...]) -> list[Path]:
     files = []
     for p in images_dir.iterdir():
@@ -76,7 +77,7 @@ def collect_images(images_dir: Path, img_exts: tuple[str, ...]) -> list[Path]:
     return files
 
 
-# 为旧文件路径生成一个唯一、未占用的临时路径。
+# 为旧文件路径生成一个唯一、未占用的临时路径
 def build_tmp_path(old: Path, used_tmp_paths: set[Path]) -> Path:
     while True:
         candidate = old.with_name(f"{old.stem}.__tmp__.{uuid4().hex}{old.suffix}")
@@ -85,7 +86,7 @@ def build_tmp_path(old: Path, used_tmp_paths: set[Path]) -> Path:
             return candidate
 
 
-# 使用两段式重命名执行批量改名，避免覆盖冲突。
+# 使用两段式重命名执行批量改名，避免覆盖冲突
 def two_phase_rename(pairs: list[tuple[Path, Path]], dry_run: bool = False):
     # 去掉 old == new 的无效操作
     pairs = [(old, new) for old, new in pairs if old != new]
@@ -132,7 +133,7 @@ def two_phase_rename(pairs: list[tuple[Path, Path]], dry_run: bool = False):
             os.rename(tmp, new)
 
 
-# 重命名单个 split 下的图片-标签配对样本，并返回下一起始编号。
+# 重命名单个 split 下的图片-标签配对样本，并返回下一起始编号
 def rename_split(
     images_dir: Path,
     labels_dir: Path,
@@ -205,7 +206,7 @@ def rename_split(
     return idx
 
 
-# 构建命令行参数解析器并定义可用参数。
+# 构建命令行参数解析器并定义可用参数
 def build_parser():
     parser = argparse.ArgumentParser(
         description="Rename YOLO image-label pairs in dataset splits."
@@ -265,7 +266,7 @@ def build_parser():
     return parser
 
 
-# 合并默认配置、文件配置和命令行参数，输出最终配置。
+# 合并默认配置、文件配置和命令行参数，输出最终配置
 def build_config(args) -> dict:
     cfg = DEFAULT_CONFIG.copy()
 
