@@ -38,7 +38,7 @@ For more detailed usage instructions, please refer to:
 ├── json/
 │   ├── rename_yolov5_pairs.json
 │   ├── rename_ordered.json
-│   └── yolo_visualizer.example.json
+│   └── yolo_visualizer.json
 ├── tools/
 │   ├── rename_yolov5_pairs.py
 │   ├── rename_ordered.py

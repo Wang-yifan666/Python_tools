@@ -1,7 +1,7 @@
 # 建议先阅读 docs/cn(en)/yolo_visualizer.md
 # python tools/yolo_visualizer.py --help
 # python tools/yolo_visualizer.py --image_dir dataset/images --label_dir dataset/labels --output_dir dataset/visualization
-# python tools/yolo_visualizer.py --config json/yolo_visualizer.example.json
+# python tools/yolo_visualizer.py --config json/yolo_visualizer.json
 
 import argparse
 import json
