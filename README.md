@@ -6,6 +6,7 @@ Currently, the repository includes:
 
 - `rename_yolov5_pairs.py`: used to batch rename image-label paired files in a YOLOv5 dataset
 - `rename_files_in_order.py`: used to batch rename files in a specified folder according to filename order
+- `yolo_visualizer.py`: used to draw YOLO-format bounding boxes onto images for visualization
 
 For more detailed usage instructions, please refer to:
 
@@ -17,6 +18,10 @@ For more detailed usage instructions, please refer to:
   - Chinese documentation: `docs/cn/rename_files_in_order.md`
   - English documentation: `docs/en/rename_files_in_order.md`
 
+- `yolo_visualizer.py`
+  - Chinese documentation: `docs/cn/yolo_visualizer.md`
+  - English documentation: `docs/en/yolo_visualizer.md`
+
 ---
 
 ```
@@ -24,16 +29,20 @@ For more detailed usage instructions, please refer to:
 ├── docs/
 │   ├── cn/
 │   │   ├── rename_yolov5_pairs.md
-│   │   └── rename_files_in_order.md
+│   │   ├── rename_files_in_order.md
+│   │   └── yolo_visualizer.md
 │   └── en/
 │       ├── rename_yolov5_pairs.md
-│       └── rename_files_in_order.md
+│       ├── rename_files_in_order.md
+│       └── yolo_visualizer.md
 ├── json/
 │   ├── rename_yolov5_pairs.json
-│   └── rename_files_in_order.json
+│   ├── rename_files_in_order.json
+│   └── yolo_visualizer.json
 ├── tools/
 │   ├── rename_yolov5_pairs.py
-│   └── rename_files_in_order.py
+│   ├── rename_files_in_order.py
+│   └── yolo_visualizer.py
 ├── README.md
 └── README_cn.md
 ```

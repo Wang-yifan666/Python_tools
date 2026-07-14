@@ -1,0 +1,11 @@
+{
+  "image_dir": "dataset/images",
+  "label_dir": "dataset/labels",
+  "output_dir": "dataset/visualization",
+  "classes": ["person", "car", "dog"],
+  "colors": [
+    [0, 255, 0],
+    [255, 0, 0],
+    [0, 0, 255]
+  ]
+}
